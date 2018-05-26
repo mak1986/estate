@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-image">
+        <figure class="image is-4by3">
+            <img src="{{Ctrl.model.images[0]}}" alt="Placeholder image">
+        </figure>
+    </div>
+    <div class="card-content has-background-grey-dark">
+
+        <div class="content">
+
+            <p class="title is-4 has-text-white">{{Ctrl.model.title}}</p>
+
+        </div>
+    </div>
+    <div class="card-content has-background-dark">
+
+        <div class="content">
+
+            <p class="subtitle is-4 has-text-warning has-text-weight-bold has-text-centered">
+                {{Ctrl.model.price}} บาท</p>
+        </div>
+    </div>
+    <div class="card-content">
+
+        <div class="content">
+
+            <div class="field is-grouped is-grouped-multiline">
+                <div class="control">
+                    <div class="tags has-addons">
+                        <span class="tag is-dark">ประเภท</span>
+                        <span class="tag is-info">{{Ctrl.model.type}}</span>
+                    </div>
+                </div>
+
+                <div class="control">
+                    <div class="tags has-addons">
+                        <span class="tag is-dark">หนังสือ</span>
+                        <span class="tag is-success">{{Ctrl.model.holdingtype}}</span>
+                    </div>
+                </div>
+
+                <div class="control">
+                    <div class="tags has-addons">
+                        <span class="tag is-dark">จังหวัด</span>
+                        <span class="tag is-primary">{{Ctrl.model.province}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-grouped is-grouped-multiline">
+                <div class="control">
+                    <div class="tags">
+                        <span class="tag" ng-repeat="tag in Ctrl.model.tags">{{tag}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

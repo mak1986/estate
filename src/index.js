@@ -1,12 +1,16 @@
-import _ from 'lodash';
+import angular from 'angular';
 
-function component() {
-    var element = document.createElement('div');
+// components
+import navigationBar from './components/navigation-bar/navigation-bar';
+import search from './components/search/search';
+import result from './components/result/result';
+import results from './components/results/results';
+import foot from './components/foot/foot';
 
-    // Lodash, now imported by this script
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+angular.module('app', [])
+    .component('navigationBar', navigationBar)
+    .component('search', search)
+    .component('result', result)
+    .component('results', results)
+    .component('foot', foot);
 
-    return element;
-}
-
-// document.body.appendChild(component());
