@@ -1,0 +1,13 @@
+<nav class="pagination level" role="navigation" aria-label="pagination" ng-if="Ctrl.lastPage > 1">
+    <a class="pagination-previous" ng-disabled="Ctrl.currentPage === 1" ng-click="Ctrl.setCurrentPage(Ctrl.currentPage - 1)">Previous</a>
+    <a class="pagination-next" ng-disabled="Ctrl.currentPage === Ctrl.lastPage" ng-click="Ctrl.setCurrentPage(Ctrl.currentPage + 1)">Next page</a>
+    <ul class="pagination-list">
+        <li ng-if="Ctrl.currentPage >= 3"><a class="pagination-link" aria-label="อ 1" ng-click="Ctrl.setCurrentPage(1)">1</a></li>
+        <li ng-if="Ctrl.currentPage >= 4"><span class="pagination-ellipsis">&hellip;</span></li>
+        <li ng-if="Ctrl.currentPage >= 2"><a class="pagination-link" aria-label="ไปที่หน้า {{Ctrl.currentPage - 1}}" ng-click="Ctrl.setCurrentPage(Ctrl.currentPage - 1)">{{Ctrl.currentPage - 1}}</a></li>
+        <li><a class="pagination-link is-current" aria-label="หน้า {{Ctrl.currentPage}}" aria-current="page">{{Ctrl.currentPage}}</a></li>
+        <li ng-if="Ctrl.currentPage !== Ctrl.lastPage"><a class="pagination-link" aria-label="ไปที่หน้า {{Ctrl.currentPage + 1}}" ng-click="Ctrl.setCurrentPage(Ctrl.currentPage + 1)">{{Ctrl.currentPage + 1}}</a></li>
+        <li ng-if="Ctrl.currentPage <= Ctrl.lastPage - 3"><span class="pagination-ellipsis">&hellip;</span></li>
+        <li ng-if="Ctrl.currentPage <= Ctrl.lastPage - 2"><a class="pagination-link" aria-label="ไปที่หน้า {{Ctrl.lastPage}}"  ng-click="Ctrl.setCurrentPage(Ctrl.lastPage)">{{Ctrl.lastPage}}</a></li>
+    </ul>
+</nav>

@@ -1,36 +1,90 @@
 <section class="section has-background-dark">
     <div class="container">
         <!-- Main container -->
-        <nav class="level">
-            <!-- Left side -->
-            <div class="level-left">
-                <div class="level-item">
-                    <p class="subtitle is-5 has-text-light">
-                        <strong>123</strong> posts
-                    </p>
-                </div>
-                <div class="level-item">
-                    <div class="field has-addons">
-                        <p class="control">
-                            <input class="input" type="text" placeholder="Find a post">
-                        </p>
-                        <p class="control">
-                            <button class="button">
-                                Search
-                            </button>
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <form novalidate name="searchForm">
 
-            <!-- Right side -->
-            <!--<div class="level-right">-->
-            <!--<p class="level-item has-text-warning"><strong>All</strong></p>-->
-            <!--<p class="level-item has-text-warning"><a>Published</a></p>-->
-            <!--<p class="level-item has-text-warning"><a>Drafts</a></p>-->
-            <!--<p class="level-item has-text-warning"><a>Deleted</a></p>-->
-            <!--<p class="level-item"><a class="button is-success">New</a></p>-->
-            <!--</div>-->
-        </nav>
+            <nav class="level">
+                <!-- Left side -->
+                    <div class="level-left">
+                        <div class="level-item">
+                            <div class="field">
+                                <label class="label has-text-light">ประกาศ</label>
+                                <p class="control" style="padding:6px 0px;">
+                                    <label class="checkbox has-text-light" style="margin-right:5px;">
+                                        <input type="checkbox" ng-model="Ctrl.searchCriteria.sell">
+                                        ขาย
+                                    </label>
+                                    <label class="checkbox has-text-light" style="margin-right:5px;">
+                                        <input type="checkbox" ng-model="Ctrl.searchCriteria.rent">
+                                        เช่า
+                                    </label>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <div class="field">
+                                <label class="label has-text-light">ประเภท</label>
+                                <div class="select">
+                                    <select ng-model="Ctrl.searchCriteria.realEstateType">
+                                        <option ng-value="false">เลือกประเภท</option>
+                                        <option ng-value="realEstateType" ng-repeat="realEstateType in Ctrl.realEstateTypes">{{realEstateType}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <div class="field">
+                                <label class="label has-text-light">ค้นหาข้อความ</label>
+                                <p class="control">
+                                    <input class="input" ng-model="Ctrl.searchCriteria.freeText" type="text" name="freeText" placeholder="ค้นหาข้อความ">
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="level-item">
+                            <div class="field">
+                                <label class="label has-text-light">จังหวัด</label>
+                                <div class="select">
+                                    <select ng-model="Ctrl.searchCriteria.province">
+                                        <option ng-value="false">เลือกจังหวัด</option>
+                                        <option ng-value="province" ng-repeat="province in Ctrl.provinces">{{province}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="level-item">
+                            <div class="field">
+                                <label class="label has-text-light">ราคาเริ่ม</label>
+                                <div class="control">
+                                    <input class="input" ng-model="Ctrl.searchCriteria.priceFrom" type="number" name="priceFrom" placeholder="ราคาเริ่ม">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <div class="field">
+                                <label class="label has-text-light">ราคาสิ้นสุด</label>
+                                <div class="control">
+                                    <input class="input" ng-model="Ctrl.searchCriteria.priceTo" type="number" name="priceTo" placeholder="ราคาสิ้นสุด">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="level-item">
+                            <div class="field is-grouped" style="padding-top:32px;">
+                                <div class="control">
+                                    <button class="button is-dark has-text-light" ng-click="Ctrl.reset()">รีเซต</button>
+                                </div>
+                                <div class="control">
+                                    <button class="button is-link" ng-click="Ctrl.search()">ค้นหา</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+            </nav>
+        </form>
+
     </div>
 </section>

@@ -2,25 +2,26 @@
     <div class="container">
 
         <div class="columns is-multiline">
-            <div class="column is-one-quarter" ng-repeat="result in Ctrl.results">
+            <div class="column is-one-third" ng-repeat="result in Ctrl.paginationList">
                 <result model="result"></result>
             </div>
         </div>
 
+        <div ng-if="Ctrl.paginationList.length === 0 && !Ctrl.loading" class="notification">
+            <span class="icon has-text-danger">
+                <i class="fas fa-exclamation"></i>
+            </span>
+            ไม่พบข้อมูล
+        </div>
 
-        <nav class="pagination level" role="navigation" aria-label="pagination">
-            <a class="pagination-previous">Previous</a>
-            <a class="pagination-next">Next page</a>
-            <ul class="pagination-list">
-                <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                <li><a class="pagination-link" aria-label="Goto page 45">45</a></li>
-                <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">46</a></li>
-                <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                <li><a class="pagination-link" aria-label="Goto page 86">86</a></li>
-            </ul>
-        </nav>
+        <div ng-if="Ctrl.loading" class="notification">
+            <span class="icon has-text-info">
+                <i class="fas fa-spinner fa-pulse"></i>
+            </span>
+            กำลังโหลดโปรดรอสักครู่
+        </div>
+
+        <pagination limit="6" list="Ctrl.results" on-page-changed="Ctrl.setPaginationList(paginationList)"></pagination>
 
     </div>
 </section>
